@@ -1,0 +1,59 @@
+
+<div class="jumbotron_index special">
+  <!-- Video Background -->
+  <video autoplay loop poster="54.183.64.164/raw-media/first-frame-screencap" id="video-background" muted>
+    <source src="https://0.s3.envato.com/h264-video-previews/1eb3dc2e-48f5-4543-ae5a-59c4deaf34dd/11474096.mp4" type="video/mp4">
+  </video> 
+        <div class="navbar transparent navbar-inverse navbar-static-top hr">
+            <div class="navbar-brand logo color" id="logo-color"><%= link_to "Trail Mix",root_path, :class => "logo" %></div>
+                <div class="navbar-brand-right">
+    </div>
+    <div class="container">
+
+        <div class="navbar-header color">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+
+        </div>
+        <div class="navbar-collapse collapse pull-right">
+            <ul class="nav navbar-nav mineul">
+              <li><%= link_to "About", about_path, :class => "navcolor" %></li>
+              <li><%= link_to "Contact", contact_path, :class => "navcolor" %></li>
+              <li><%= link_to "Help", help_path, :class => "navcolor" %></li>
+            </ul>
+
+
+        </div>
+    </div>
+</div>
+    <h1 class="title"><strong>Trails List<strong></h1>
+<div id="columns">
+    <% if @response %>
+            <% @response["places"].each do |places| %>
+                <div class="pin">
+                    <div class="panel-heading"><h1><%= "#{places["city"]}, #{places["state"]}" %></h1></div>
+                        <% places["activities"].each do |activity| %>
+                            <div class="panel-body">  
+                                
+                                 <h2><%= activity["name"] %></h2>
+                                 <p><strong>Activity: </strong><%= activity["activity_type_name"] %></p>
+                                  <p><strong>Description: </strong><%= activity["description"] %></p>
+                                  
+                                
+                                <div class="btn-group">
+                                <%= link_to "Details", trail: "#{activity['name']}", action: "show" %>
+                                </div>
+                            </div>
+
+                        <% end %>
+                </div>
+            <% end %>
+        </div>
+    <% end %>
+</div>
+
+
+ 

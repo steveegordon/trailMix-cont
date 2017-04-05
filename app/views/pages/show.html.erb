@@ -1,0 +1,61 @@
+<div class="jumbotron_show special">
+    <div class="navbar transparent navbar-inverse navbar-static-top hr">
+        <div class="navbar-brand logo color" id="logo-color"><%= link_to "Trail Mix",root_path, :class => "logo" %></div>
+          <div class="navbar-brand-right">
+    </div>
+    <div class="container">
+
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+
+        </div>
+        <div class="navbar-collapse collapse pull-right">
+            <ul class="nav navbar-nav mineul">
+              <li><%= link_to "About", about_path, :class => "navcolor" %></li>
+              <li><%= link_to "Contact", contact_path, :class => "navcolor" %></li>
+              <li><%= link_to "Help", help_path, :class => "navcolor" %></li>
+            </ul>
+
+
+            </div>
+        </div>
+    </div>    
+
+
+    <% unless @trail.nil? %>
+        <div class="container-fluid">
+            <div class="row">
+                <div class ="col-xs-12 text-center">
+                    <h1 ='place_name'><%= @trail['places'][0]['name'] %></h1>
+                </div>
+
+                <div class ="col-xs-12">
+                <div="img_container">
+                    <% unless @instagram.nil? %>
+                        <% @instagram.each_with_index do |instagram, index| %>
+                            <%= image_tag instagram.images.standard_resolution.url, :size => "260x180" %>
+
+                        <% end %>
+                    <% end %>
+                </div>
+
+                <div class ="col-xs-8 place_body">
+                    <h2><%= @trail['places'][0]['city'] %>, <%= @trail['places'][0]['state'] %></h2>
+                        <p><strong>Activity Description:</strong> <%= @trail['places'][0]['activities'][0]['description'] %></p>
+                        <p><strong>Description:</strong> <%= @trail['places'][0]['description'] %></p>
+                </div>
+                <div class="col-xs-4" id="map-canvas">
+                    
+                </div>
+            </div>
+        </div>  
+    <% end %>
+  
+
+
+      
+</div>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+        <% if @trail %>
+        <div id="latlon" lat=<%= @trail["places"][0]["lat"] %> lon=<%= @trail["places"][0]["lon"] %> ></div>
+        <% end %>
+  <title>TrailMix</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+
+
+
+  <%= csrf_meta_tags %>
+
+</head>
+<body>
+  
+
+<%= yield %>
+
+ <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+
+</body>
+</html>

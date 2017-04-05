@@ -1,0 +1,176 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any styles
+ * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
+ * file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+
+
+@import "bootstrap-sprockets";
+@import "bootstrap";
+@font-face {
+  font-family: 'capture_itregular';
+  src: font-url('capture_it-webfont.eot');
+  src: font-url('capture_it-webfont.eot?#iefix') format('embedded-opentype'),
+  font-url('capture_it-webfont.woff2') format('woff2'),
+  font-url('capture_it-webfont.woff') format('woff'),
+  font-url('capture_it-webfont.ttf') format('truetype'),
+  font-url('capture_it-webfont.svg#capture_itregular') format('svg');
+  font-weight: normal;
+  font-style: normal;
+
+}
+
+html,body {
+	height:100%;
+}
+.special, .jumbotron, .jumbotron_index, .jumbotron_show  {
+	height:100%;
+}
+
+.jumbotron {
+    background-image: url('http://i.imgur.com/2UywLXQ.jpg');
+    background-position: 0% 25%;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+.jumbotron_show {
+background-image: url('http://celsiussnow.com/wp-content/uploads/2013/08/Light-Wood-Background1-1024x640.jpg');
+    background-position: 0% 25%;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.navbar {
+   background-color: transparent;
+   background: transparent;
+   border-color: transparent;
+   font-family: capture_itregular;
+   color: #FFF;
+}
+
+#quote {
+	color:#FFF;
+}
+
+#style_image {
+	height:475px;
+	opacity: .7;
+  padding-bottom: 10px;
+}
+
+#logo-color {
+  color:#FFF;
+  font-size: 3em;
+  letter-spacing: 3px;
+}
+
+
+#map-canvas {
+  height: 400px;
+  width: 400px
+}
+
+#columns {
+  -webkit-column-count: 3;
+  -webkit-column-gap: 10px;
+  -webkit-column-fill: auto;
+  -moz-column-count: 3;
+  -moz-column-gap: 10px;
+  -moz-column-fill: auto;
+  column-count: 3;
+  column-gap: 15px;
+  column-fill: auto;
+  color: white;
+}
+
+.pin {
+  display: inline-block;
+  border-radius: 10px;
+  background-size:cover;
+  margin: 0 2px 15px;
+  
+ 
+  padding: 15px;
+  padding-bottom: 5px;
+  -webkit-box-shadow: 11px 10px 16px 0px rgba(0,0,0,0.75);
+  -moz-box-shadow: 11px 10px 16px 0px rgba(0,0,0,0.75);
+  box-shadow: 11px 10px 16px 0px rgba(0,0,0,0.75);
+  
+  -webkit-column-break-inside: avoid;
+  -moz-column-break-inside: avoid;
+  column-break-inside: avoid;
+
+  -webkit-transition: all .2s ease;
+  -moz-transition: all .2s ease;
+  -o-transition: all .2s ease;
+  transition: all .2s ease;
+
+
+}
+
+.panel-body {
+  color: #FFF;
+}
+
+#video-background {
+/*  making the video fullscreen  */
+  position: fixed;
+  right: 0; 
+  bottom: 0;
+  min-width: 100%; 
+  min-height: 100%;
+  width: auto; 
+  height: auto;
+  z-index: -100;
+}
+
+.pin:hover {
+  background: black;
+}
+
+ .logo {
+      color: #FFF;
+      letter-spacing: 3px;
+      &:hover {
+         color: red;
+         text-decoration: none;
+       }
+     }
+.navbar .nav > li > a {
+  &.navcolor {
+    color: #FFF;
+  }
+  &:hover {
+    color:red;
+  }
+}
+
+.title{
+  text-align: center;
+  margin: 0 auto;
+  font-family: 'capture_itregular';
+  color: #FFF;
+  letter-spacing: 3px;
+  text-decoration: underline;
+
+}
+
+.place_body{
+  font-size: 2em;
+  color: white;
+}
+#login_color {
+  color: black;
+}
+
+input {color: black}
