@@ -33,7 +33,7 @@
 html,body {
 	height:100%;
 }
-.special, .jumbotron, .jumbotron_index, .jumbotron_show  {
+.jumbotron, .jumbotron_index  {
 	height:100%;
 }
 
@@ -47,7 +47,8 @@ html,body {
 background-image: url('http://celsiussnow.com/wp-content/uploads/2013/08/Light-Wood-Background1-1024x640.jpg');
     background-position: 0% 25%;
     background-size: cover;
-    background-repeat: no-repeat;
+    background-repeat: repeat-y;
+    min-height: 100%;
 }
 
 .navbar {
@@ -64,7 +65,7 @@ background-image: url('http://celsiussnow.com/wp-content/uploads/2013/08/Light-W
 
 #style_image {
 	height:475px;
-	opacity: .5;
+	opacity: .8;
   padding-bottom: 10px;
 }
 
