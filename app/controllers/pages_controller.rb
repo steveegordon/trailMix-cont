@@ -1,4 +1,5 @@
 class PagesController < ApplicationController
+  require 'instagram'
   require "addressable/uri"
   before_action :logged_in_user, only: [:index, :show]
   def welcome
@@ -49,10 +50,16 @@ class PagesController < ApplicationController
       @trail = JSON.parse(trailuri.body)
       @lat = @trail["places"][0]["lat"]
       @lon = @trail["places"][0]["lon"]
+      # 53041ec849764f90849ec8ab8b11b7ff
       # searchuri = HTTParty.get "http://api.openweathermap.org/data/2.5/forecast/daily?lat=#{@lat}&lon=#{@lon}&units=imperial&cnt=5&mode=json"
       # @responses = JSON.parse(searchuri.body)
       # @name = @responses['city']['name']
-      @instagram = Instagram.tag_recent_media("#{name}", {:count => 4})
+      # INSTAGRAM WORKING ONLY CHANGE TO LAT LON AND LOCATION NAME
+      session[:access_token] = ENV['INSTAGRAM_TOKEN']
+      client = Instagram.client(:access_token => session[:access_token])
+      @instagram = client.tag_search("bacon")
+      @results = client.tag_recent_media(@instagram[0].name)
+      # @instagram = Instagram.tag_recent_media("#{name}", {:count => 4})
       # @tweets = $client.search("##{name}" + " -rt", result_type: "recent").take(3)
     else
     end

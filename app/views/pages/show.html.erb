@@ -35,8 +35,8 @@
 
                 <div class ="col-xs-12">
                 <div="img_container">
-                    <% unless @instagram.nil? %>
-                        <% @instagram.each_with_index do |instagram, index| %>
+                    <% unless @results.nil? %>
+                        <% @results.each_with_index do |instagram, index| %>
                             <%= image_tag instagram.images.standard_resolution.url, :size => "260x180" %>
 
                         <% end %>

@@ -131,7 +131,7 @@
 			function loadScript() {
 				var script = document.createElement('script');
 				script.type = 'text/javascript';
-				script.src = 'https://maps.googleapis.com/maps/api/js?key=AIzaSyAd1KC9Oo39e7sLm0kKpoimB6lWQIguArk&callback=initialize';
+				script.src = 'https://maps.googleapis.com/maps/api/js?key=AIzaSyDOh2Gz1XN1v4xXpONamLBrADS3m0mCCpg&callback=initialize';
 				document.body.appendChild(script);
 
 			}
