@@ -8,9 +8,10 @@ class UsersController < ApplicationController
 
   def create
     @user = User.new(user_params)
+    puts @user
     if @user.save
       log_in @user
-      redirect_to root_url
+      redirect_to root_path
     else
       render 'new'
     end
@@ -19,7 +20,7 @@ class UsersController < ApplicationController
   def destroy
     @user = User.find(params[:id])
     @user.destroy
-    redirect_to root_url
+    redirect_to root_path
   end
 
   private

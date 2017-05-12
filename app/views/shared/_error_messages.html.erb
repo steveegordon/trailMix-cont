@@ -1,0 +1,16 @@
+<!-- error messages partial  -->
+<!-- only shows if error message -->
+<% if object.errors.any? %>
+  <div id="error_explanation">
+    <div class="alert alert-danger">
+    <!-- Specifices number of errors and pluralizes so error changes to errors -->
+      The form contains <%= pluralize(object.errors.count, "error") %>.
+    </div>
+    <ul>
+    <!-- gives full message for each error -->
+    <% object.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+    </ul>
+  </div>
+<% end %>

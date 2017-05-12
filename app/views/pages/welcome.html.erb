@@ -36,6 +36,7 @@
 	   			 		<%= image_tag "LogoWithWolf.png", :id => "style_image" %>
 	   			 		</div>
 	   			 		<div class="col-md-12 text-center">
+              <% if logged_in? %>
 							<%= form_tag trails_path, method: 'get', class: 'form-inline' do %>
 								 <div class="form-group">
 									<%= text_field_tag :location, nil, placeholder: 'Type an address, city, or zip code.', class: 'form-control' %>
@@ -55,7 +56,12 @@
 									<%= submit_tag "Search", class: "btn btn-default" %>
 								</div>
 							<% end %>
+              <% end %>
 							<br>
+          <% flash.each do |message_type, message| %>
+          <div class="alert alert-<%= message_type %>"><%= message %>
+          </div>
+          <% end %>
 							<p id="quote"></p>
 						</div>
 
