@@ -40,16 +40,23 @@ class PagesController < ApplicationController
   end
   # container method
   def show
-          if params[:trail]
+    if params[:trail]
         trail = params[:trail]
-        name = trail.delete(' /')
+        trail = trail.delete(' /')
+        trail = trail.delete('%26amp%3B')
+        puts trail
+
         # weather not working yet
         # also need new trail get request
       encoded_url = URI.encode(endpoint + "&q[name_eq]=#{trail}")
       trailuri = HTTParty.get(encoded_url)
       @trail = JSON.parse(trailuri.body)
+      if @trail.length > 1
       @lat = @trail["places"][0]["lat"]
       @lon = @trail["places"][0]["lon"]
+      else
+        @trail = nil
+      end
       # 53041ec849764f90849ec8ab8b11b7ff
       # searchuri = HTTParty.get "http://api.openweathermap.org/data/2.5/forecast/daily?lat=#{@lat}&lon=#{@lon}&units=imperial&cnt=5&mode=json"
       # @responses = JSON.parse(searchuri.body)

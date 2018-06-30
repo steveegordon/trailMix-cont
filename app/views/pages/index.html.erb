@@ -37,6 +37,7 @@
                     <div class="panel-heading"><h1><%= "#{places["city"]}, #{places["state"]}" %></h1></div>
                         <% places["activities"].each do |activity| %>
                             <div class="panel-body">  
+                                <p><%= activity %></p>
                                 
                                  <h2><%= activity["name"] %></h2>
                                  <p><strong>Activity: </strong><%= activity["activity_type_name"] %></p>

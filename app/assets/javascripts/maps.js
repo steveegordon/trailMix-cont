@@ -85,6 +85,7 @@
 		    	function success(position) {
 		    		var mylat = position.coords.latitude;
 		    		var mylon = position.coords.longitude;
+		    		console.log(mylat);
 		    		
 		    		var myLatlng = new google.maps.LatLng(mylat, mylon);
 		    		
@@ -131,24 +132,9 @@
 			function loadScript() {
 				var script = document.createElement('script');
 				script.type = 'text/javascript';
-				script.src = 'https://maps.googleapis.com/maps/api/js?key=AIzaSyDOh2Gz1XN1v4xXpONamLBrADS3m0mCCpg&callback=initialize';
+				script.src = 'https://maps.googleapis.com/maps/api/js?key=AIzaSyAXvnPa-ATSD3cyNmf2_XcWIIyAkxv4_Ow&callback=initialize';
 				document.body.appendChild(script);
 
 			}
 
-
-
-
-
-
-
-	// window.onload = loadScript;
-
-
-
-
-
-
-		// Loads in Google maps on windows
-		// google.maps.event.addDomListener(window, 'load', create, loadscript);
 

@@ -5,7 +5,7 @@ class ApplicationController < ActionController::Base
   def logged_in_user
     unless logged_in?
       flash[:danger] = "Please log in."
-      redirect_to root_url
+      redirect_to root_path
     end
   end
   protect_from_forgery with: :exception

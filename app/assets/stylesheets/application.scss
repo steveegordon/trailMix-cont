@@ -12,6 +12,7 @@
  *
  *= require_tree .
  *= require_self
+ *= require pages
  */
 
 
@@ -33,6 +34,8 @@
 html,body {
 	height:100%;
 }
+
+
 .jumbotron, .jumbotron_index  {
 	height:100%;
 }
@@ -78,7 +81,9 @@ background-image: url('http://celsiussnow.com/wp-content/uploads/2013/08/Light-W
 
 #map-canvas {
   height: 400px;
-  width: 400px
+  width: 400px;
+  margin: 0 calc((100vw - 400px)/2);
+  margin-bottom: 40px;
 }
 
 #columns {
@@ -94,9 +99,11 @@ background-image: url('http://celsiussnow.com/wp-content/uploads/2013/08/Light-W
   color: white;
 }
 
+
 .pin {
   display: inline-block;
   border-radius: 10px;
+  background-color: rgba(0,0,0,.5);
   background-size:cover;
   margin: 0 2px 15px;
   
@@ -175,9 +182,16 @@ padding-top: 10px;
 
 }
 
+img_container {
+  width: 90%;
+}
+
 .place_body{
   font-size: 2em;
   color: white;
+  background-color: rgba(147, 95, 38,.7);
+  width: 90%;
+  margin: 20px 5%;
 }
 #login_color {
   color: black;
