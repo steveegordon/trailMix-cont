@@ -17,7 +17,7 @@
 //= require maps
 //= require turbolinks
 
-ready = ->
+
 var quotes = [
 
 			'"Every moment you live in the past is a moment you waste in the present..."', 
@@ -47,12 +47,9 @@ var quotes = [
 		return Math.floor(Math.random() * quotes.length);
 	}
 
-// window.onload = function(){
-//   loadScript();
-//   loadQuote();
-// };
-loadScript();
-loadQuote();
+ window.onload = function(){
+   loadScript();
+   loadQuote();
+ };
 
-$(document).ready(ready)
-$(document).on('page:load', ready)
+
