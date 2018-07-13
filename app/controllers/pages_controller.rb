@@ -42,16 +42,18 @@ class PagesController < ApplicationController
   def show
     if params[:trail]
         trail = params[:trail]
-        trail = trail.delete(' /')
-        trail = trail.delete('%26amp%3B')
+        trail = trail.gsub(/(%26amp%3B|\/)/,'')
         puts trail
 
         # weather not working yet
         # also need new trail get request
-      encoded_url = URI.encode(endpoint + "&q[name_eq]=#{trail}")
+      encoded_url = URI.encode(endpoint + "&q[unique_id_eq]=#{trail}")
       trailuri = HTTParty.get(encoded_url)
+      # @test = HTTParty.get(URI.encode(endpoint + "&q[unique_id_eq]=22132"))
       @trail = JSON.parse(trailuri.body)
-      if @trail.length > 1
+      puts @test
+      puts @trail
+      if @trail['places'][0].length > 1
       @lat = @trail["places"][0]["lat"]
       @lon = @trail["places"][0]["lon"]
       else
