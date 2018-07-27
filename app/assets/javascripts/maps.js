@@ -129,12 +129,6 @@
 			}
 
 
-			function loadScript() {
-				var script = document.createElement('script');
-				script.type = 'text/javascript';
-				script.src = 'https://maps.googleapis.com/maps/api/js?key=AIzaSyAXvnPa-ATSD3cyNmf2_XcWIIyAkxv4_Ow&callback=initialize';
-				document.body.appendChild(script);
-
-			}
+	
 
 

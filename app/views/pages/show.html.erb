@@ -1,3 +1,4 @@
+<% provide(:title, "show") %>
 <div class="jumbotron_show special">
     <div class="navbar transparent navbar-inverse navbar-static-top hr">
         <div class="navbar-brand logo color" id="logo-color"><%= link_to "Trail Mix",root_path, :class => "logo" %></div>
@@ -42,6 +43,11 @@
                         <% end %>
                     <% end %>
                 </div>
+                <!-- Basic unstyled weather data added -->
+                    <% @weather.each_with_index do |forecast, index| %>
+                    <span class='sprite sprite-<%= @weather["list"][0]["weather"][0]["icon"] %>'></span>
+                    <p><%= DateTime.strptime(@weather["list"][index]["dt"].to_s,'%s') %></p>
+                <% end %>
 
                 <div class ="col-xs-12 place_body">
                     <h2><%= @trail['places'][0]['city'] %>, <%= @trail['places'][0]['state'] %></h2>
@@ -58,7 +64,7 @@
     <% if @trail.nil? %>
         <p>We apologize there is no available information for this location<p>
     <% end %>
-    <script type="text/javascript" src="../../assets/maps.self"></script>
+<!--     <script type="text/javascript" src="../../assets/maps.self"></script> -->
   
 
 

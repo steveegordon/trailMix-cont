@@ -17,7 +17,7 @@
 //= require maps
 //= require turbolinks
 
-
+// Quotes for splash screen
 var quotes = [
 
 			'"Every moment you live in the past is a moment you waste in the present..."', 
@@ -31,25 +31,25 @@ var quotes = [
             '"TOO MUCH agreement, kills a chat."',
             '"Nothing is impossible, the word itself spells \"I\'m POSSIBLE\""'
 			];
-
+// Loads quote and appends to quote ID
 	function loadQuote(){
-			
-			
 			var i = getRandom();
-			var quote = quotes[i];
-			console.log(quote);			
-			$('#quote').append(quote);
-
-			
+			var quote = quotes[i];	
+			$('#quote').append(quote);			
 		}
-
+// Random Quote picker
 	function getRandom(){
 		return Math.floor(Math.random() * quotes.length);
 	}
 
- window.onload = function(){
-   loadScript();
-   loadQuote();
- };
+// Turbolinks script initializer and loader
+document.addEventListener("turbolinks:load", function() {
+  loadQuote();
+  if ($('#mappy')){
+  initialize();
+ }
+});
+
+
 
 

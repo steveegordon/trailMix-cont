@@ -2,18 +2,22 @@
 <html>
 <head>
  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <% if @trail %>
-        <div id="latlon" lat=<%= @trail["places"][0]["lat"] %> lon=<%= @trail["places"][0]["lon"] %> ></div>
-        <% end %>
-  <title>TrailMix</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
 
 
 
   <%= csrf_meta_tags %>
+  <% if :title %>
+  <script type="text/javascript" id='mappy' src='https://maps.googleapis.com/maps/api/js?key=AIzaSyAXvnPa-ATSD3cyNmf2_XcWIIyAkxv4_Ow&callback=initialize' defer></script>
+  <% end %>
+
 
 </head>
+        <% if @trail %>
+        <div id="latlon" lat=<%= @trail["places"][0]["lat"] %> lon=<%= @trail["places"][0]["lon"] %> ></div>
+        <% end %>
+  <title>TrailMix</title>
 <body>
   
 

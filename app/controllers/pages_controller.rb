@@ -1,4 +1,5 @@
 class PagesController < ApplicationController
+  require 'date'
   require 'instagram'
   require "addressable/uri"
   before_action :logged_in_user, only: [:index, :show]
@@ -70,6 +71,10 @@ class PagesController < ApplicationController
       @results = client.tag_recent_media(@instagram[0].name)
       # @instagram = Instagram.tag_recent_media("#{name}", {:count => 4})
       # @tweets = $client.search("##{name}" + " -rt", result_type: "recent").take(3)
+      wEncoded_url = URI.encode(weatherEndpoint + "lat=#{@lat}&lon=#{@lon}&units=imperial&cnt=5&mode=json&APPID=7888f57f54ff97632fbe7c6cb8349e85")
+      weatheruri = HTTParty.get(wEncoded_url)
+      @weather = JSON.parse(weatheruri.body)
+      puts @weather
     else
     end
   # we need to take lat and lon from show location and save as varialble named lat lon
@@ -86,6 +91,10 @@ class PagesController < ApplicationController
   private
   def endpoint
     endpoint = "https://outdoor-data-api.herokuapp.com/api.json?api_key=4146c148c3d63d322c2b88b4870a6ba1"
+  end
+
+  def weatherEndpoint
+    weatherEndpoint = "http://api.openweathermap.org/data/2.5/forecast?"
   end
 
   def about
