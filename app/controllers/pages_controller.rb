@@ -1,4 +1,5 @@
 class PagesController < ApplicationController
+  include PagesHelper
   require 'date'
   require 'instagram'
   require "addressable/uri"
@@ -71,9 +72,11 @@ class PagesController < ApplicationController
       @results = client.tag_recent_media(@instagram[0].name)
       # @instagram = Instagram.tag_recent_media("#{name}", {:count => 4})
       # @tweets = $client.search("##{name}" + " -rt", result_type: "recent").take(3)
-      wEncoded_url = URI.encode(weatherEndpoint + "lat=#{@lat}&lon=#{@lon}&units=imperial&cnt=5&mode=json&APPID=7888f57f54ff97632fbe7c6cb8349e85")
+      wEncoded_url = URI.encode(weatherEndpoint + "lat=#{@lat}&lon=#{@lon}&units=imperial&mode=json&APPID=7888f57f54ff97632fbe7c6cb8349e85")
       weatheruri = HTTParty.get(wEncoded_url)
       @weather = JSON.parse(weatheruri.body)
+      puts @lat, @lon
+      @weather = trim_weather(@weather)
       puts @weather
     else
     end
