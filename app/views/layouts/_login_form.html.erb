@@ -1,5 +1,6 @@
-
+<li>
 <%= form_for(:session, html: { class: "loginForm" }, url: login_path) do |f| %>
+
   <%= f.label :email %>
   <%= f.email_field :email %>
 
@@ -7,4 +8,6 @@
   <%= f.password_field :password %>
 
   <%= f.submit "Log in", class: "login"  %>
+
 <% end %>
+</li>
