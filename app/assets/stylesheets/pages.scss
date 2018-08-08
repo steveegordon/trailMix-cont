@@ -135,11 +135,19 @@ background-position: -245px -65px;
 }
 
 .weather {
-  margin: 5px;
-  width: calc((100% - 60px)/5);
-  display: inline-block;
+  margin-left: calc(100%*(1/12)/5);
+  margin-right: calc(100%*(1/12)/5);
+/*  margin: 5px;
+  width: calc((100% - 60px)/5);*/
+/*  display: inline-block;*/
   background-color: white;
   border-radius: 20px;
-  padding-left: 5px;
+/*  padding-left: 5px;*/
   box-shadow: 3px 3px;
+}
+
+.weatherContainer {
+  margin-top: 20px;
+  padding-left: 10px;
+  padding-right: 10px;
 }

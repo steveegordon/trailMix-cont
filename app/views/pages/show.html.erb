@@ -29,7 +29,7 @@
 
 
     <% unless @trail.nil? %>
-        <div class="container-fluid">
+        <div class="container">
             <div class="row">
                 <div class ="col-xs-12 text-center">
                     <h1 ='place_name'><%= @trail['places'][0]['name'] %>
@@ -39,26 +39,31 @@
 
                 <div class ="col-xs-12">
                     </div>
-                <div class="img_container">
+                <div class="row">
                     <% unless @results.nil? %>
                         <% @results.each_with_index do |instagram, index| %>
-                            <%= image_tag instagram.images.standard_resolution.url, :size => "260x180" %>
-
+                            <div class="col-xs-4">
+                            <%= image_tag instagram.images.standard_resolution.url, :class => "img-responsive, img-thumbnail" %>
+                            </div>
                         <% end %>
                     <% end %>
                 </div>
-                <div class="row">
-                <div class="weatherContainer col-lg-12">
+                <div class="row weatherContainer">
+                <!-- <div class="weatherContainer col-lg-12"> -->
+
                 <!-- Basic unstyled weather data added -->
+                    <!-- <div class="col-xs-1"></div> -->
                     <% @weather.each_with_index do |forecast, index| %>
-                    <div class="weather">
+                    <div class="col-xs-2 weather text-center">
+                    <!-- <div class="weather"> -->
                     <span class='sprite sprite-<%= @weather[index]["icon"] %>'></span>
                     <p><%= @weather[index]["date"] %></p>
                     <p><%= @weather[index]["temp"] %></p>
                     </div>
                 <% end %>
+                    <!-- <div class="col-xs-1"></div> -->
                 </div>
-                </div>
+<!--                 </div> -->
                 <div class ="col-xs-12 place_body">
                     <h2><%= @trail['places'][0]['city'] %>, <%= @trail['places'][0]['state'] %></h2>
                         <p><strong>Activity Description:</strong> <%= @trail['places'][0]['activities'][0]['description'].html_safe %></p>
