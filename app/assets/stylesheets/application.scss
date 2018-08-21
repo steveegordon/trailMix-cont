@@ -82,7 +82,7 @@ background-image: url('http://celsiussnow.com/wp-content/uploads/2013/08/Light-W
 #map-canvas {
   height: 400px;
   width: 400px;
-  margin: 0 calc((100vw - 400px)/2);
+  margin: 0 calc(50% - 200px);
   margin-bottom: 40px;
 }
 
@@ -189,6 +189,15 @@ padding: 7px 15px 7px 15px;
   text-decoration: underline;
 
 }
+
+/*.desc {
+  height: 100px;
+  line-height: 33px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  max-width: 80%;
+}*/
 
 
 .place_body{

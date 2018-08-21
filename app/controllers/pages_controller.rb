@@ -45,7 +45,7 @@ class PagesController < ApplicationController
     if params[:trail]
         trail = params[:trail]
         trail = trail.gsub(/(%26amp%3B|\/)/,'')
-        puts trail
+        # puts trail
 
         # weather not working yet
         # also need new trail get request
@@ -53,8 +53,8 @@ class PagesController < ApplicationController
       trailuri = HTTParty.get(encoded_url)
       # @test = HTTParty.get(URI.encode(endpoint + "&q[unique_id_eq]=22132"))
       @trail = JSON.parse(trailuri.body)
-      puts @test
-      puts @trail
+      # puts @test
+      # puts @trail
       if @trail['places'][0].length > 1
       @lat = @trail["places"][0]["lat"]
       @lon = @trail["places"][0]["lon"]
@@ -75,9 +75,9 @@ class PagesController < ApplicationController
       wEncoded_url = URI.encode(weatherEndpoint + "lat=#{@lat}&lon=#{@lon}&units=imperial&mode=json&APPID=7888f57f54ff97632fbe7c6cb8349e85")
       weatheruri = HTTParty.get(wEncoded_url)
       @weather = JSON.parse(weatheruri.body)
-      puts @lat, @lon
+      # puts @lat, @lon
       @weather = trim_weather(@weather)
-      puts @weather
+      # puts @weather
     else
     end
   # we need to take lat and lon from show location and save as varialble named lat lon
